@@ -20,6 +20,11 @@ char *_strdup(char *str)
 		i++;
 
 	str2 = malloc(sizeof(char) * (i + 1));
+	if (!str2)
+	{
+		dprintf(STDERR_FILENO, "Error: malloc failed\n");
+		exit(EXIT_FAILURE);
+	}
 
 	if (str2 == NULL)
 		return (NULL);

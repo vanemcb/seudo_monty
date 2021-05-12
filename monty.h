@@ -7,3 +7,4 @@
 
 char **_token(char *str, char *sep);
 char *_strdup(char *str);
+char *read_m(char *file_name);

@@ -2,15 +2,16 @@
 
 int main(int ac, char **av)
 {
-	char buffer[1024], **array_lines = NULL, **array_lines_token = NULL;
-	int fd = 0, bytes_read = 0, i = 0, x = 0;
+	char **array_lines = NULL, **array_lines_token = NULL, *buffer = NULL;
+	int i = 0, x = 0;
 
-	(void)ac;
+	if (ac != 2)
+	{
+		dprintf(STDERR_FILENO, "USAGE: monty file\n");
+		exit (EXIT_FAILURE);
+	}
 
-	fd = open(av[1], O_RDONLY);
-
-	bytes_read = read(fd, buffer, 1024);
-	buffer[bytes_read] = '\0';
+	buffer = read_m(av[1]);
 
 	array_lines = _token(buffer, "\n");
 
@@ -28,6 +29,7 @@ int main(int ac, char **av)
 		i++;
 	}
 	free(array_lines);
-	close(fd);
+	free(buffer);
+
 	return (0);
 }

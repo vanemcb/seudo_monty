@@ -20,9 +20,13 @@ char **_token(char *str, char *sep)
 		token_cp = strtok(NULL, sep);
 		x++;
 	}
+
 	array_input = malloc(sizeof(char *) * (x + 1));
 	if (!array_input)
-		return (NULL);
+	{
+		dprintf(STDERR_FILENO, "Error: malloc failed\n");
+		exit(EXIT_FAILURE);
+	}
 
 	token = strtok(str, sep);
 	while (token != NULL)
