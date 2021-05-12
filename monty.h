@@ -38,6 +38,8 @@ typedef struct instruction_s
 
 char **_token(char *str, char *sep);
 char *_strdup(char *str);
-char *read_m(char *file_name);
+char **read_m(char *file_name);
 void call_function(char *array_lines);
 char *_strtok(char *str, char *delim);
+int cont_lines(char *buff, char delim);
+char **read_line(char *file_name, int num_lines);

@@ -2,9 +2,9 @@
 
 int main(int ac, char **av)
 {
-	char **array_lines = NULL, *buffer = NULL;
+	char **array_lines = NULL;
 	int i = 0;
-	/* stack_t *h = NULL; */
+	/*stack_t *head = NULL;*/
 
 	if (ac != 2)
 	{
@@ -12,18 +12,16 @@ int main(int ac, char **av)
 		exit (EXIT_FAILURE);
 	}
 
-	buffer = read_m(av[1]);
-
-	array_lines = _token(buffer, "\n");
+	array_lines = read_m(av[1]);
 
 	while (array_lines[i])
 	{
-		printf("%s\n", array_lines[i]);
-		/* call_function(array_lines[i], &h); */
+		printf("%s", array_lines[i]);
+		/*call_function(array_lines[i], &head);*/
+		free(array_lines[i]);
 		i++;
 	}
 	free(array_lines);
-	free(buffer);
 
 	return (0);
 }

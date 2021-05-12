@@ -1,9 +1,9 @@
 #include "monty.h"
 
-char *read_m(char *file_name)
+char **read_m(char *file_name)
 {
-	char *buffer = NULL;
-	int fd = 0, bytes_read = 0;
+	char *buffer = NULL, **array_lines = NULL;
+	int fd = 0, bytes_read = 0, num_lines;
 
 	buffer = malloc(1024);
 	if (!buffer)
@@ -19,10 +19,15 @@ char *read_m(char *file_name)
 		free(buffer);
 		exit(EXIT_FAILURE);
 	}
+
 	bytes_read = read(fd, buffer, 1024);
 	buffer[bytes_read] = '\0';
 
+	num_lines = cont_lines(buffer, '\n');
+	array_lines = read_line(file_name, num_lines);
+
 	close(fd);
-	return (buffer);
+	free(buffer);
+	return (array_lines);
 }
 
