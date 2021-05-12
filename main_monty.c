@@ -2,8 +2,9 @@
 
 int main(int ac, char **av)
 {
-	char **array_lines = NULL, **array_lines_token = NULL, *buffer = NULL;
-	int i = 0, x = 0;
+	char **array_lines = NULL, *buffer = NULL;
+	int i = 0;
+	/* stack_t *h = NULL; */
 
 	if (ac != 2)
 	{
@@ -17,15 +18,8 @@ int main(int ac, char **av)
 
 	while (array_lines[i])
 	{
-		/*printf("%s\n", array_lines[i]);*/
-		array_lines_token = _token(array_lines[i], " ");
-		while (array_lines_token[x])
-		{
-			printf("%s\n", array_lines_token[x]);
-			x++;
-		}
-		free(array_lines_token);
-		x = 0;
+		printf("%s\n", array_lines[i]);
+		/* call_function(array_lines[i], &h); */
 		i++;
 	}
 	free(array_lines);

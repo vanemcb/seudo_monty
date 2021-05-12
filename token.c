@@ -35,6 +35,7 @@ char **_token(char *str, char *sep)
 		token = strtok(NULL, sep);
 		i++;
 	}
+	printf("%dh\n", i);
 	array_input[i] = NULL;
 	free(str_dup);
 	return (array_input);
