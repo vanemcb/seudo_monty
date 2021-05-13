@@ -7,7 +7,6 @@
 * @str: input string.
 * Return: pointer to a newly allocated space in memory.
 */
-
 char *_strdup(char *str)
 {
 	char *str2 = NULL;
@@ -33,4 +32,18 @@ char *_strdup(char *str)
 		str2[x] = str[x];
 
 	return (str2);
+}
+
+/**
+ *_strlen - counter of character
+ *@s: string
+ *Return: length of the string
+ */
+int _strlen(char *s)
+{
+	int i = 0, c = 0;
+
+	for ( ; s[i] != '\0' ; i++)
+		c++;
+	return (c);
 }

@@ -6,7 +6,6 @@
 * @sep: Character used to split.
 * Return: An array that contains each word splitted.
 */
-
 char **_token(char *str, char *sep)
 {
 	char *token_cp = NULL, *str_dup = NULL, *token = NULL;
@@ -35,7 +34,6 @@ char **_token(char *str, char *sep)
 		token = strtok(NULL, sep);
 		i++;
 	}
-	printf("%dh\n", i);
 	array_input[i] = NULL;
 	free(str_dup);
 	return (array_input);

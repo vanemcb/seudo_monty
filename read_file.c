@@ -1,5 +1,10 @@
 #include "monty.h"
 
+/**
+ *read_m - this function read the monty file
+ *@file_name: the file
+ *Return: array with each line of the file
+ */
 char **read_m(char *file_name)
 {
 	char *buffer = NULL, **array_lines = NULL;
